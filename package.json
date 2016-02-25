@@ -1,0 +1,23 @@
+{
+  "name": "unoesc-app",
+  "version": "1.0.0",
+  "description": "App da Pós Unoesc",
+  "main": "nodemon server.js\u001b[C\u001b[D",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "SET NODE_ENV=development&&nodemon server.js"
+  },
+  "keywords": [
+    "app",
+    "unoesc"
+  ],
+  "author": "Daniel Sonda",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "lodash": "^4.3.0",
+    "mongoose": "^4.4.3"
+  }
+}
