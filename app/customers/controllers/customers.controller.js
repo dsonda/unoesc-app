@@ -20,7 +20,6 @@ exports.find = function(req, res) {
 
 exports.create = function(req, res) {
   var customer = new Customer(req.body);
-  customer.creationDate = Date();
   customer.save(function(err) {
     if (err) {
       res.status(400).json({
@@ -40,7 +39,6 @@ exports.update = function(req, res) {
   customer.name = req.body.name;
   customer.address = req.body.address;
   customer.phoneNumber = req.body.phoneNumber
-  customer.updateDate = Date();
   customer.save(function(err) {
     if (err) {
       res.status(400).json({

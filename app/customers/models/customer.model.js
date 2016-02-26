@@ -23,4 +23,13 @@ var CustomerSchema = new Schema({
   }
 });
 
+CustomerSchema.pre('save', function(next) {
+  var customer = this;
+  if (customer.isNew) {
+    customer.creationDate = new Date();
+  }
+  customer.updateDate  = new Date();
+  next();
+});
+
 module.exports = mongoose.model('Customer', CustomerSchema);
