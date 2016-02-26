@@ -20,7 +20,6 @@ exports.find = function(req, res) {
 
 exports.create = function(req, res) {
   var brewery = new Brewery(req.body);
-  brewery.creationDate = Date();
   brewery.save(function(err) {
     if (err) {
       res.status(400).json({
@@ -39,7 +38,6 @@ exports.update = function(req, res) {
   var brewery = req.brewery;
   brewery.name = req.body.name;
   brewery.description = req.body.description;
-  brewery.updateDate = Date();
   brewery.save(function(err) {
     if (err) {
       res.status(400).json({

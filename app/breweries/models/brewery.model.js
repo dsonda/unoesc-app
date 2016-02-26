@@ -20,4 +20,13 @@ var BrewerySchema = new Schema({
   }
 });
 
+BrewerySchema.pre('save', function(next) {
+  var brewery = this;
+  if (brewery.isNew) {
+    brewery.creationDate = new Date();
+  }
+  brewery.updateDate  = new Date();
+  next();
+});
+
 module.exports = mongoose.model('Brewery', BrewerySchema);
