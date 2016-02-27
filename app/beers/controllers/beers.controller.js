@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
     Beer = require('../models/beer.model');
 
 exports.findAll = function(req, res) {
-  Beer.find([]).populate('brewery').exec(function(err, beers) {
+  Beer.find({}).populate('brewery').exec(function(err, beers) {
     if (err) {
       console.error(err);
       res.status(400).json(err);

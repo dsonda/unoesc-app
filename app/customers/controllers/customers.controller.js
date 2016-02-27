@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
     Customer = require('../models/customer.model');
 
 exports.findAll = function(req, res) {
-  Customer.find([]).exec(function(err, customers) {
+  Customer.find({}).exec(function(err, customers) {
     if (err) {
       console.error(err);
       res.status(400).json(err);
