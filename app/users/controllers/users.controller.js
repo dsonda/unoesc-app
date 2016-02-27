@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
     User = require('../models/user.model');
 
 exports.findAll = function(req, res) {
-  User.find([]).exec(function(err, users) {
+  User.find({}, '-password').exec(function(err, users) {
     if (err) {
       console.error(err);
       res.status(400).json(err);
@@ -37,7 +37,9 @@ exports.create = function(req, res) {
 exports.update = function(req, res) {
   var user = req.user;
   user.email = req.body.email;
-  user.password = req.body.password;
+  if (req.body.password) {
+    user.password = req.body.password;    
+  }
   user.name = req.body.name;
   user.save(function(err) {
     if (err) {
