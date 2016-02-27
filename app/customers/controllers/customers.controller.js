@@ -38,7 +38,7 @@ exports.update = function(req, res) {
   var customer = req.customer;
   customer.name = req.body.name;
   customer.address = req.body.address;
-  customer.phoneNumber = req.body.phoneNumber
+  customer.phoneNumber = req.body.phoneNumber;
   customer.save(function(err) {
     if (err) {
       res.status(400).json({
