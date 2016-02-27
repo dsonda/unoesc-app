@@ -18,6 +18,7 @@ module.exports = function(db) {
   require('../app/breweries/routes/breweries.routes')(api);
   require('../app/customers/routes/customers.routes')(api);
   require('../app/beers/routes/beers.routes')(api);
+  require('../app/users/routes/users.routes')(api);
   
   app.use('/api', api)
 
