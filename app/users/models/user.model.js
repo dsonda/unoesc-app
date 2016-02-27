@@ -21,6 +21,10 @@ var UserSchema = new Schema({
   },
   updateDate: {
     type: Date
+  },
+  roles: {
+    type: Array,
+    default: ['user']
   }
 });
 
@@ -30,6 +34,9 @@ UserSchema.pre('save', function(next) {
     user.creationDate = new Date();
   }
   user.updateDate  = new Date();
+  if (this.isModified('password') || this.isNew) {
+    user.password = user.password;
+  }
   next();
 });
 

@@ -20,6 +20,9 @@ exports.find = function(req, res) {
 
 exports.create = function(req, res) {
   var user = new User(req.body);
+  if (user.roles.length == 0) {
+    user.roles = ['user'];
+  }
   user.save(function(err) {
     if (err) {
       res.status(400).json({
@@ -41,6 +44,7 @@ exports.update = function(req, res) {
     user.password = req.body.password;    
   }
   user.name = req.body.name;
+  user.roles = req.body.roles;
   user.save(function(err) {
     if (err) {
       res.status(400).json({
