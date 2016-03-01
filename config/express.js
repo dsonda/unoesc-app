@@ -15,6 +15,7 @@ module.exports = function(db) {
 
   var api = express.Router();
   require('../app/core/routes/core.routes')(api);
+  require('../app/users/routes/auth.routes')(api);
   require('../app/breweries/routes/breweries.routes')(api);
   require('../app/customers/routes/customers.routes')(api);
   require('../app/beers/routes/beers.routes')(api);
